@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section>
+  <article>
+    <h1>Make a reservation</h1>
+    <!--Begin row-->
+    <div class="row">
+      <!--Begin col-->
+      <div class="column">
+          {% csrf_token %}
+          <form method="POST" id="form">
+            <!-- {% csrf_token %} -->
+            <p>
+              <label for="Name">Name:</label>
+              <input type="text" placeholder="Your First Name" maxlength="200" required="" id="Name" name="Name">
+            </p>
+            <p>
+              <!-- Step 9: Part one  -->
+              <label for="BookingDate">Reservation Date</label>
+              <input type="date" placeholder="Default is Today" id="BookingDate" name="BookingDate">
+            </p>
+            <p>
+              <label for="TableID">Table Number</label>
+              <select id="TableID" name="TableID" required>
+                <!-- <option value="0" disabled selected>Select Table</option> -->
+                <option value="1">1</option>
+                <option value="2">2</option> 
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </p>
+            <p>
+              <label for="No_of_guests">Number of Guests:</label>
+              <select id="No_of_guests" name="No_of_guests" required>
+                <!-- <option value="0" disabled selected>Select number of guests</option> -->
+                <option value="1">1</option>
+                <option value="2">2</option> 
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </p>
+            <button type="submit" value="Reserve" name="Reserve">Reserve</button> 
+          </form>
+      </div>
+      <!--End col-->
+      <div>
+      <h2>Your Reservation is booked Successfully!</h2>
+      <p>Name: {{form.Name}}</p>
+      <p>Booking Date: {{form.BookingDate}}</p>
+      <p>Table: {{form.TableID}}</p>
+      <p>No. of Guests: {{form.No_of_guests}}</p>
+      </div>
+      <!--Begin col-->
+      <!-- <div class="column">
+        <h2>Bookings For <span id="today"></span></h2>
+        <div id="bookings">
+        </div>
+      </div> -->
+      <!--End col-->
+    </div>
+    <!--End row-->
+
+
+
+
+  </article>
+</section>
+
+{% endblock %}
+
